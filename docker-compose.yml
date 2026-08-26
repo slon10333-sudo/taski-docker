@@ -1,0 +1,30 @@
+volumes:
+  postgre:
+  static:
+services:
+  db:
+    image: postgres:13.10
+    env_file: .env
+    volumes:
+      - postgre:/var/lib/postgresql/data
+  backend:
+    build: ./backend/
+    env_file: .env
+    depends_on: 
+      - db
+    volumes:
+      - static:/backend_static
+  frontend:
+    build: ./frontend/
+    command: cp -r /app/build/. /frontend_static/
+    env_file: .env
+    volumes:
+      - static:/frontend_static
+  geteway:
+    build: ./geteway/
+    volumes:
+      - static:/staticfiles
+    depends_on:
+      - backend
+    ports:
+      - 8000:80
