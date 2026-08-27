@@ -18,6 +18,6 @@ class TaskiApiTestCase(TestCase):
             'title': 'порно',
             'description': 'описание'
         }
-        response = self.cl.post('/api/tasls/', data=data)
-        self.assertEqual(response.status_code, HTTPStatus.OK)
+        response = self.cl.post('/api/tasks/', data=data)
+        self.assertEqual(response.status_code, HTTPStatus.CREATED)
         self.assertTrue(models.Task.objects.filter(title='порно').exists())
