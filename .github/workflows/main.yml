@@ -19,6 +19,10 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip setuptools
           pip install flake8==7.3.0 flake8-isort==7.0.0
-      - name: Test with flacke8
-        run: python3 -m flake8 backend/
+          pip install -r ./backend/requirements.txt
+      - name: Test with flacke8 and tests
+        run: |
+          python3 -m flake8 backend/
+          cd backend/
+          python3 manage.py test
   
