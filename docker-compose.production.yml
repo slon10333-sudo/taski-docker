@@ -14,6 +14,9 @@ services:
   backend:
     image: noherzeg/taski_backend # Качаем с Docker Hub
     env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
     volumes:
       - static_volume:/backend_static
   frontend:
