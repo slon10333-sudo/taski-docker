@@ -26,6 +26,8 @@ services:
       - static_volume:/frontend_static
   gateway:
     image: noherzeg/taski_gateway
+    depends_on:
+      - backend
     env_file: .env
     volumes:
       - static_volume:/staticfiles/
