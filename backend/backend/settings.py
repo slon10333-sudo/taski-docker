@@ -13,7 +13,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'polina-dev.myvnc.com']
 
-СSRF_TRUSTED_ORIGINS = ['https://polina-dev.work.gd']
+СSRF_TRUSTED_ORIGINS = ['https://polina-dev.myvnc.com']
 
 
 # Application definition
